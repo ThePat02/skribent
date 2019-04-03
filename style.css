@@ -1,0 +1,85 @@
+/*
+Color:
+
+1: #00D34D
+2: #1EFD8D
+3: #FD1E1E
+4: #FD8D8D
+5: #7F0F0F
+
+
+
+
+*/
+
+html {
+  font-family: "Open Sans";
+  margin: 30px;
+  margin-top: 10px;
+}
+
+.title {
+  font-size: 70px;
+}
+
+a {
+ color: #00D34D;
+ text-decoration: none;
+ font-weight: bold
+}
+
+textarea {
+  background: none;
+  border: none;
+  resize: none;
+  width: 50%;
+  height: 650px;
+  font-size: 30px;
+  overflow: auto;
+  outline: none;
+  font-family: Arial;
+  overflow-x: hidden;
+  
+  /*https://www.w3schools.com/cssref/css3_pr_overflow-y.asp*/
+}
+
+input {
+  background: none;
+  border: none;
+  resize: none;
+  width: 50%; 
+  font-size: 30px;
+  overflow: auto;
+  outline: none;
+  font-family: Calibri;
+  font-weight: bold;
+}
+
+
+.button {
+  background-color: #00D34D;
+  color: white;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.newnavbar {
+ font-size: 35px; 
+}
+
+.navitem {
+  cursor: pointer;
+}
+
+::selection {
+       background-color: #00D34D;
+       color: black;
+       opacity: 0.5;
+}
+
+.formatbutton {
+  padding: 10px;
+  font-size: 20px;
+  color: black;
+  width: 200px;
+}
