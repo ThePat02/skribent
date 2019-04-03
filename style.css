@@ -11,7 +11,6 @@ Color:
 
 
 */
-
 html {
   font-family: "Open Sans";
   margin: 30px;
@@ -23,9 +22,9 @@ html {
 }
 
 a {
- color: #00D34D;
- text-decoration: none;
- font-weight: bold
+  color: #00D34D;
+  text-decoration: none;
+  font-weight: bold
 }
 
 textarea {
@@ -39,7 +38,6 @@ textarea {
   outline: none;
   font-family: Arial;
   overflow-x: hidden;
-  
   /*https://www.w3schools.com/cssref/css3_pr_overflow-y.asp*/
 }
 
@@ -47,14 +45,13 @@ input {
   background: none;
   border: none;
   resize: none;
-  width: 50%; 
+  width: 50%;
   font-size: 30px;
   overflow: auto;
   outline: none;
   font-family: Calibri;
   font-weight: bold;
 }
-
 
 .button {
   background-color: #00D34D;
@@ -64,7 +61,7 @@ input {
 }
 
 .newnavbar {
- font-size: 35px; 
+  font-size: 35px;
 }
 
 .navitem {
@@ -72,9 +69,9 @@ input {
 }
 
 ::selection {
-       background-color: #00D34D;
-       color: black;
-       opacity: 0.5;
+  background-color: #00D34D;
+  color: black;
+  opacity: 0.5;
 }
 
 .formatbutton {

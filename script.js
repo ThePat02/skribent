@@ -11,78 +11,70 @@ function download(filename, text) {
   document.body.removeChild(element);
 }
 
-function exportTxt()
-{
+function exportTxt() {
   download(document.getElementById("titel").value + ".txt", document.getElementById("text").value.replace(/\n/gmi, '\r\n'));
 }
 
-function exportHtml()
-{
+function exportHtml() {
   var source = tagsToElements(document.getElementById("text").value.replace(/\n/gmi, '<br>'));
   download(document.getElementById("titel").value + ".html", source);
 }
 
-function exportPdf()
-{
+function exportPdf() {
   var doc = new jsPDF();
-  
-  var elementHandler = {
-  '#ignorePDF': function (element, renderer) {
-    return true;
-    }
-    };
 
- var source = getSource();
+  var elementHandler = {
+    '#ignorePDF': function(element, renderer) {
+      return true;
+    }
+  };
+
+  var source = getSource();
   alert(source);
   doc.fromHTML(
     source,
     15,
-    15,
-    {
-      'width': 180,'elementHandlers': elementHandler
+    15, {
+      'width': 180,
+      'elementHandlers': elementHandler
     });
-  
+
   doc.setFont("arial");
-  
+
   doc.save(document.getElementById("titel").value);
 }
 
-function saving()
-{
+function saving() {
   localStorage.setItem("titel", document.getElementById("titel").value);
-  localStorage.setItem("body", document.getElementById("text").value );
+  localStorage.setItem("body", document.getElementById("text").value);
   console.log("Saved");
-  
-    $("#text").on('keyup', function() {
-    var words = this.value.match(/\S+/g).length;
-;
-    
-      $('#display_count').text(words);
-    }
-  );
+
+  $("#text").on('keyup', function() {
+    var words = this.value.match(/\S+/g).length;;
+
+    $('#display_count').text(words);
+  });
 }
 
-function getSource()
-{
+function getSource() {
   var source = document.getElementById("text").value;
   source = tagsToElements(source);
-  source = source.replace(/\n/gmi, '<br> '); 
+  source = source.replace(/\n/gmi, '<br> ');
   return source;
 }
 
-function tagsToElements(a)
-{
+function tagsToElements(a) {
   var output = a;
   output = htmlprestyle + output;
   output = output.replace("((", "<strong>");
   output = output.replace("))", "</strong>");
-  output = output.replace("(~", "<i>"); 
+  output = output.replace("(~", "<i>");
   output = output.replace("~)", "</i>");
-  output = output.replace("--->", "<h3>"); 
+  output = output.replace("--->", "<h3>");
   output = output.replace("<---", "</h3>");
-  output = output.replace("-->", "<h2>"); 
+  output = output.replace("-->", "<h2>");
   output = output.replace("<--", "</h3>");
-  output = output.replace("->", "<h1>"); 
+  output = output.replace("->", "<h1>");
   output = output.replace("<-", "</h1>");
 
 
@@ -90,22 +82,19 @@ function tagsToElements(a)
   return output;
 }
 
-function newFile()
-{
- localStorage.clear();
+function newFile() {
+  localStorage.clear();
   location.reload();
 }
 
 
 $(document).ready(function() {
   $("#text").on('keyup', function() {
-    var words = this.value.match(/\S+/g).length;
-;
-    
-      $('#display_count').text(words);
+    var words = this.value.match(/\S+/g).length;;
+
+    $('#display_count').text(words);
     saving();
-    }
-  );
+  });
 });
 
 

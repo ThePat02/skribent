@@ -1,87 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Skribent - A different text editor</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <meta property="og:site_name" content="skribent.glitch.me"/>
-    <meta property="og:title" content="Skribent - A different text editor"/>
-    <meta property="og:image" content="YOURIMAGEURLGOESHERE.JPG">
-    <meta property="og:description" content="Well, SKRIBENT is an alternative writing software in your browser. It literally is useless and poorly programmed, but who cares. It doesn't have a grammar check feature (but your browser most likely has). SKRIBENT (maybe) saves your work till your next session, but make sure to export your important work as *.txt before, since cloud saving is only for the big boys.
+
+<head>
+  <title>Skribent - A different text editor</title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta property="og:site_name" content="skribent.glitch.me" />
+  <meta property="og:title" content="Skribent - A different text editor" />
+  <meta property="og:image" content="YOURIMAGEURLGOESHERE.JPG">
+  <meta property="og:description" content="Well, SKRIBENT is an alternative writing software in your browser. It literally is useless and poorly programmed, but who cares. It doesn't have a grammar check feature (but your browser most likely has). SKRIBENT (maybe) saves your work till your next session, but make sure to export your important work as *.txt before, since cloud saving is only for the big boys.
 ">
-    
-    <!-- import the webpage's stylesheet -->
-    <link rel="stylesheet" href="/style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />
-    
-    <!-- import the webpage's javascript file -->
-    <script src="/script.js" defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
-    
-    
-    
-    
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
-<script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
-<script>
-window.addEventListener("load", function(){
-window.cookieconsent.initialise({
-  "palette": {
-    "popup": {
-      "background": "#efefef",
-      "text": "#404040"
-    },
-    "button": {
-      "background": "#00d34d",
-      "text": "#ffffff"
-    }
-  },
-  "position": "bottom-right",
-  "content": {
-    "message": "We are using cookies  and other stuff like that. You are okay with this, I guess.",
-    "dismiss": "I have no other choice, but ok",
-    "link": "Read a long text about it"
-  }
-})});
-</script>
-  </head>  
-  <body>
-    <header>
-      <span class="title"><span style="color:#00D34D">Skri</span>bent</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-      <span class="newnavbar">
-        <a class="navitem" onclick="newFile()">New file</a>
-      </span>
-    </header>
-      
-    
-    <br><br>
-    
-    
-    <div>   
-      <center>
-        <input placeholder="Your questionable title should be here..." id="titel">Words: <span id="display_count">0</span><br>
-        <textarea id="text" onchange="saving()" placeholder="Write your text here...
-                                                             
+
+  <!-- import the webpage's stylesheet -->
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" integrity="sha384-gfdkjb5BdAXd+lj+gudLWI+BXq4IuLW5IT+brZEZsLFm++aCMlF1V92rMkPaX4PP" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300" type="text/css" />
+
+  <!-- import the webpage's javascript file -->
+  <script src="/script.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js" integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/" crossorigin="anonymous"></script>
+
+
+
+
+  <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.css" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.1.0/cookieconsent.min.js"></script>
+  <script>
+    window.addEventListener("load", function() {
+      window.cookieconsent.initialise({
+        "palette": {
+          "popup": {
+            "background": "#efefef",
+            "text": "#404040"
+          },
+          "button": {
+            "background": "#00d34d",
+            "text": "#ffffff"
+          }
+        },
+        "position": "bottom-right",
+        "content": {
+          "message": "We are using cookies  and other stuff like that. You are okay with this, I guess.",
+          "dismiss": "I have no other choice, but ok",
+          "link": "Read a long text about it"
+        }
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <header>
+    <span class="title"><span style="color:#00D34D">Skri</span>bent</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <span class="newnavbar">
+      <a class="navitem" onclick="newFile()">New file</a>
+    </span>
+  </header>
+
+
+  <br><br>
+
+
+  <div>
+    <center>
+      <input placeholder="Your questionable title should be here..." id="titel">Words: <span id="display_count">0</span><br>
+      <textarea id="text" onchange="saving()" placeholder="Write your text here...
+
 Well, SKRIBENT is an alternative writing software in your browser. It literally is useless and poorly programmed, but who cares. We do now support some formatting and native HTML! (*.html & *.pdf export only, obviously)
-                                                             
+
 Bold: ((Bold text))
-Italic: (~Italic text~)     
-Header: ->Header1<- -->Header2<-- --->Header3<---                                                                                     
+Italic: (~Italic text~)
+Header: ->Header1<- -->Header2<-- --->Header3<---
         "></textarea></center><br>
-      
-      <a class="button" onclick="exportTxt()">Export as *.txt</a>
-      <a class="button" style="background-color:#0086d3" onclick="exportHtml()">Export as *.html</a>
-      <a class="button" style="background-color:#d34d00" onclick="exportPdf()">Export as *.pdf (not properly working)</a> 
-      &nbsp;&nbsp;&nbsp;&nbsp;Alternatively brought to you by Pat ∙ Using <a href="https://github.com/MrRio/jsPDF">jsPDF</a>
-    </div>
-    
-    <script>
-        document.getElementById("titel").value =  localStorage.getItem("titel");
-        document.getElementById("text").value = localStorage.getItem("body");
-    </script>
-  </body>
+
+    <a class="button" onclick="exportTxt()">Export as *.txt</a>
+    <a class="button" style="background-color:#0086d3" onclick="exportHtml()">Export as *.html</a>
+    <a class="button" style="background-color:#d34d00" onclick="exportPdf()">Export as *.pdf (not properly working)</a>
+    &nbsp;&nbsp;&nbsp;&nbsp;Alternatively brought to you by Pat ∙ Using <a href="https://github.com/MrRio/jsPDF">jsPDF</a>
+  </div>
+
+  <script>
+    document.getElementById("titel").value = localStorage.getItem("titel");
+    document.getElementById("text").value = localStorage.getItem("body");
+  </script>
+</body>
+
 </html>
