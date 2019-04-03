@@ -32,9 +32,8 @@ function exportPdf()
     }
     };
 
-     var source = document.getElementById("text").value;
-  source = tagsToElements(source);
-  source = source.replace(/\n/gmi, "" + '<br>');
+ var source = getSource();
+  alert(source);
   doc.fromHTML(
     source,
     15,
@@ -61,6 +60,14 @@ function saving()
       $('#display_count').text(words);
     }
   );
+}
+
+function getSource()
+{
+  var source = document.getElementById("text").value;
+  source = tagsToElements(source);
+  source = source.replace(/\n/gmi, '<br> '); 
+  return source;
 }
 
 function tagsToElements(a)
@@ -102,30 +109,4 @@ $(document).ready(function() {
 });
 
 
-var htmlprestyle = "<style>html{font-family:Arial}</style>";
-
-function insertHtmlAtSelectionEnd(html, isBefore) {
-    var sel, range, node;
-    if (window.getSelection) {
-        sel = window.getSelection();
-        if (sel.getRangeAt && sel.rangeCount) {
-            range = window.getSelection().getRangeAt(0);
-            range.collapse(isBefore);
-
-            // Range.createContextualFragment() would be useful here but was
-            // until recently non-standard and not supported in all browsers
-            // (IE9, for one)
-            var el = document.createElement("div");
-            el.innerHTML = html;
-            var frag = document.createDocumentFragment(), node, lastNode;
-            while ( (node = el.firstChild) ) {
-                lastNode = frag.appendChild(node);
-            }
-            range.insertNode(frag);
-        }
-    } else if (document.selection && document.selection.createRange) {
-        range = document.selection.createRange();
-        range.collapse(isBefore);
-        range.pasteHTML(html);
-    }
-}
+var htmlprestyle = "<style>html{font-family:Arial}</style> ";
